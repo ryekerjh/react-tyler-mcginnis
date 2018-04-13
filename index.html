@@ -57,26 +57,7 @@
 
     class App extends React.Component {
 
-/*
-
-            function InactiveFriendsList(props) {
-                return (
-                    <div>
-                        <h2>Inactive Friends</h2>
-                        <ul>
-                            {props.list.map((friend) => (
-                                <li key={friend.name}>
-                                    <span>{friend.name}</span>
-                                    <button onClick={() => { props.onRemoveFriend(friend.name)}}>Remove</button> 
-                                    <button onClick={() => { props.handleToggleFriend(friend.name)}}>Activate</button>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                )
-            }
-
-*/
+    render() {
       function GithubFaves(props) {
         return (
           <ul>
@@ -86,15 +67,13 @@
           </ul>
         )
       }
-
-      render() {
-        return (
-          <div>
-           <GithubFaves data={this.props.data}/>
-          </div>
-        )
-      }
+      return (
+        <div>
+          <GithubFaves data={this.props.data}/>
+        </div>
+      )
     }
+  }
 
     ReactDOM.render(
       <App />,
