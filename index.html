@@ -31,7 +31,7 @@
         super(props);
 
         this.state = {
-          text: 'Loading',
+          text: 'Loading'
         };
       }
       componentDidMount() {
@@ -44,7 +44,6 @@
         }, 300)
       }
       componentWillUnmount() {
-        this.props.loading = false;
         window.clearInterval(this.interval);
       }
       render() {
@@ -57,37 +56,14 @@
     }
 
     class App extends React.Component {
-      constructor(props) {
-        super(props);
-        this.state = {
-          loading: true
-        }
-      }
       render() {
-        console.log(this.state);
-        if(this.state.loading) {
-          return(
-            <Loading />
-          )
-        } else  {
-        
-        function GithubFaves(props) {
-          return (
-            <ul>
-              {props.data.map((d) => (
-                <li key={d.id}>{d}</li>
-              ))}
-            </ul>
-          )
-        }
-        // return (
-        //   <div>
-        //     <GithubFaves data={this.props.data}/>
-        //   </div>
-        // )
+        return (
+          <div>
+            
+          </div>
+        )
       }
     }
-  }
 
     ReactDOM.render(
       <App />,
