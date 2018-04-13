@@ -44,6 +44,7 @@
         }, 300)
       }
       componentWillUnmount() {
+        this.props.loading = false;
         window.clearInterval(this.interval);
       }
       render() {
@@ -56,22 +57,35 @@
     }
 
     class App extends React.Component {
-
-    render() {
-      function GithubFaves(props) {
-        return (
-          <ul>
-            {props.data.map((d) => (
-              <li key={d.id}>{d}</li>
-            ))}
-          </ul>
-        )
+      constructor(props) {
+        super(props);
+        this.state = {
+          loading: true
+        }
       }
-      return (
-        <div>
-          <GithubFaves data={this.props.data}/>
-        </div>
-      )
+      render() {
+        console.log(this.state);
+        if(this.state.loading) {
+          return(
+            <Loading />
+          )
+        } else  {
+        
+        function GithubFaves(props) {
+          return (
+            <ul>
+              {props.data.map((d) => (
+                <li key={d.id}>{d}</li>
+              ))}
+            </ul>
+          )
+        }
+        // return (
+        //   <div>
+        //     <GithubFaves data={this.props.data}/>
+        //   </div>
+        // )
+      }
     }
   }
 
