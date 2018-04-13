@@ -56,11 +56,47 @@
     }
 
     class App extends React.Component {
-      render() {
+      constructor(props) {
+        super(props);
+        this.state = {
+          loading: true,
+          data: []
+        };
+<!-- TODO: Figure out how to get githubrepos to be identified -->
+      function GithubRepos(props) {
         return (
           <div>
-            
+            <ul>
+              {props.data.map((d) => (
+                <li key={d.id}>{d}</li>
+              ))}
+            </ul>
           </div>
+        )
+      }
+      }
+
+      componentDidMount() {
+        return window.API.fetchPopularRepos('all')
+        .then((data) => {
+          this.setState({
+            loading: false,
+            data: data
+          })
+        })
+        .catch((err) => {
+          console.warn(err);
+        });
+      }
+
+      render() {
+        if(this.state.loading) {
+          return (
+            <Loading />
+          )
+        }
+        return (
+          <GithubRepos />
         )
       }
     }
