@@ -55,32 +55,20 @@
       }
     }
 
-     class GithubFaves extends React.Component {
-      constructor(props) {
-        super(props);
+    class App extends React.Component {
 
-        this.state = {
-          data: []
-        };
-      }
-      componentDidUpdate() {
-
-      }
-
-      render() {
+      function GithubFaves() {
         return (
-          <p>
-            {this.state.data}
-          </p>
+          <ul>
+            <li>{this.state.data}</li>
+          </ul>
         )
       }
-    }
 
-    class App extends React.Component {
       render() {
         return (
           <div>
-           <GithubFaves data={this.state.data}/>
+           <GithubFaves data={this.props.data}/>
           </div>
         )
       }
