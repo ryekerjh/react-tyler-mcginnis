@@ -55,15 +55,8 @@
       }
     }
 
-    class App extends React.Component {
-      constructor(props) {
-        super(props);
-        this.state = {
-          loading: true,
-          data: []
-        };
-
-      function GithubRepos(props) {
+    function GithubRepos(props) {
+       
         return (
           <div>
             <ul>
@@ -74,6 +67,14 @@
           </div>
         )
       }
+
+    class App extends React.Component {
+      constructor(props) {
+        super(props);
+        this.state = {
+          loading: true,
+          data: []
+        };
       }
 
       componentDidMount() {
